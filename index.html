@@ -1,0 +1,58 @@
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.5, maximum-scale=2.0, user-scalable=yes"/>
+		<title>神秘語言轉換</title>
+		<style>
+			input[type="image"] {
+				height:80px;
+				width: 80px;
+			}
+			.center {
+				margin: 12px auto;
+				max-width: 250px;
+				min-width: 250px;
+				overflow: auto;
+				width: 92%;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="center">
+			<div style="margin-bottom: 18px;">
+				<label for="get_id">神秘語言：</label>
+				<input type="text" id="mystic" style="width: 65%;">
+			</div>
+			<div>
+				<input type="image" src="nhentai.png" alt="nhentai" onclick="transfer_url('nhentai', this)">
+				<input type="image" src="wnacg.png" alt="wnacg" onclick="transfer_url('wnacg', this)">
+				<input type="image" src="pixiv.png" alt="pixiv" onclick="transfer_url('pixiv', this)">
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		function transfer_url(to_name, elem) {
+			let mystic_num = document.getElementById("mystic").value;
+			
+			if (!mystic_num) {
+				alert('尚未輸入');
+				return;
+			}
+				
+			let url;
+			switch (to_name) {
+				case 'nhentai':
+					url = "https://nhentai.net/g/".concat(mystic_num);
+					break;
+				case 'wnacg':
+					url = "https://www.wnacg.org/photos-index-aid-".concat(mystic_num, ".html");
+					break;
+				case 'pixiv':
+					url = "https://www.pixiv.net/artworks/".concat(mystic_num);
+					break;
+			}
+			
+			if (url)
+				window.open(url);
+		}
+	</script>
+</html>
