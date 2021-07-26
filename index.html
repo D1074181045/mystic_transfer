@@ -1,40 +1,95 @@
 <html>
 	<head>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.5, maximum-scale=2.0, user-scalable=yes"/>
-		<title>神秘語言轉換</title>
+		<title>神秘數字轉換</title>
 		<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-		<meta name="title" content="神秘語言轉換">
-		<meta name="description" content="可以轉換神祕語言喔">
+		<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC&amp;display=swap" rel="stylesheet">
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.1.0/css/swiper.min.css" rel="stylesheet" />
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.1.0/js/swiper.min.js"></script>
+		<meta name="title" content="神秘數字轉換">
+		<meta name="description" content="可以轉換神祕數字喔">
 		<style>
+			body {
+				font-family: 'Noto Sans TC',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',sans-serif;
+				font-size: 16px;
+				font-weight: 400;
+				touch-action: manipulation;
+			}
+			input[type="text"] {
+				padding: .375rem .75rem;
+				font-size: .9rem;
+				background-clip: padding-box;
+				border: 1px solid #ced4da;
+				border-radius: .25rem;
+			}
 			input[type="image"] {
 				height:80px;
 				width: 80px;
 			}
 			.center {
 				margin: 12px auto;
-				max-width: 250px;
-				min-width: 250px;
-				overflow: auto;
+				max-width: 320px;
+				min-width: 320px;
+				overflow: hidden;
 				width: 92%;
 			}
+			.swiper-slide {
+				display: flex;
+			}
+			.swiper-container {
+				width: 250px;
+				height: 150px;
+			}
+			.swiper-container .swiper-wrapper .swiper-slide img {
+				height: 100%;
+				width: 100%; 
+			}
+			
+			.swiper-pagination{
+				bottom: -30px!important;
+			}
+			.swiper-pagination .swiper-pagination-bullet {width: 12px; height: 12px; background: #ff1e1e;}
+			.swiper-pagination .swiper-pagination-bullet-active {width: 21px; height: 12px; background: #e75230; border-radius: 6px;}*/
 		</style>
 	</head>
 	<body>
 		<div class="center">
-			<div style="margin-bottom: 18px;">
-				<label for="get_id">神秘語言：</label>
-				<input type="text" id="mystic" style="width: 65%;">
+			<div style="display:flex">
+				<div style="margin: auto;">
+					<h3 style="text-align: center;">神秘數字</h3>
+					<input type="text" id="number" style="display: flex; height: calc(1em + .75rem + 2px); text-align: center; width: 75%; margin: auto">
+				</div>
 			</div>
-			<div>
-				<input type="image" src="img/nhentai.png" alt="nhentai" onclick="transfer_url('nhentai', this)">
-				<input type="image" src="img/wnacg.png" alt="wnacg" onclick="transfer_url('wnacg', this)">
-				<input type="image" src="img/pixiv.png" alt="pixiv" onclick="transfer_url('pixiv', this)">
+			
+			<div class="swiper-container">
+				<div class="swiper-wrapper">
+					<div class="swiper-slide">
+						<div style="margin: auto;cursor: pointer;" onclick="transfer_url('nhentai')">
+							<input type="image" src="img/nhentai.png" alt="nhentai">
+							<div style="text-align: center;">nhentai</div>
+						</div>
+					</div>
+					<div class="swiper-slide">
+						<div style="margin: auto;cursor: pointer;" onclick="transfer_url('wnacg')">
+							<input type="image" src="img/wnacg.png" alt="wnacg">
+							<div style="text-align: center;">紳士漫畫</div>
+						</div>
+					</div>
+					<div class="swiper-slide">
+						<div style="margin: auto;cursor: pointer;" onclick="transfer_url('pixiv')">
+							<input type="image" src="img/pixiv.png" alt="pixiv">
+							<div style="text-align: center;">pixiv</div>
+						</div>
+					</div>
+				</div>
+				<div class="swiper-button-prev"></div>
+				<div class="swiper-button-next"></div>
 			</div>
 		</div>
 	</body>
 	<script type="text/javascript">
-		function transfer_url(to_name, elem) {
-			let mystic_num = document.getElementById("mystic").value;
+		function transfer_url(to_name) {
+			let mystic_num = document.getElementById("number").value;
 			
 			if (!mystic_num) {
 				alert('尚未輸入');
@@ -54,8 +109,16 @@
 					break;
 			}
 			
-			if (url)
-				window.open(url);
+			if (url) window.open(url);
 		}
+		
+		var mySwiper = new Swiper ( ".swiper-container", {
+            spaceBetween: 30,
+			direction: "horizontal",
+			navigation: {
+				nextEl: ".swiper-button-next", // 上一頁按鈕物件
+				prevEl: ".swiper-button-prev", // 下一頁按鈕物件
+			},
+		})
 	</script>
 </html>
