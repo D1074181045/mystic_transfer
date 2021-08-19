@@ -20,7 +20,14 @@
 				font-family: 'Noto Sans TC',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',sans-serif;
 				font-size: 16px;
 				font-weight: 400;
+				background: #f8f9fa !important;
 				touch-action: manipulation;
+			}
+			.d_bor {
+				background-color: rgb(166 247 255 / 30%);
+				border: 1px solid #c5c5c5;
+				box-shadow: 0px 0px 5px rgb(0 0 0 / 15%);
+				padding: 15px;border-radius: 10px;
 			}
 			input[type="text"] {
 				padding: .375rem .75rem;
@@ -34,12 +41,25 @@
 				width: 80px;
 			}
 			.center {
-				margin: 12px auto;
+				margin: 25px auto;
 				max-width: 320px;
 				min-width: 320px;
 				overflow: hidden;
 				width: 92%;
 			}
+			
+			.lines {
+				text-align: center;
+				height: 30px;
+				display: flex;
+			}
+
+			.lines .line {
+				width: 40%;
+				border-top: 2px solid #65c9ef;
+				margin-top: 15px;
+			}
+			
 			.swiper-slide {
 				display: flex;
 			}
@@ -64,37 +84,56 @@
 		<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K38KF9C"
 		height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 		<!-- End Google Tag Manager (noscript) -->
+	
 		<div class="center">
-			<div style="display:flex">
-				<div style="margin: auto;">
-					<h3 style="text-align: center;">神的語言</h3>
-					<input type="text" id="number" style="display: flex; height: calc(1em + .75rem + 2px); text-align: center; width: 75%; margin: auto">
+			
+			<div class="d_bor">
+				<div style="display:flex">
+					<div style="margin: auto;">
+						<h3 style="text-align: center;">神的語言</h3>
+						<input type="text" id="number" style="display: flex; height: calc(1em + .75rem + 2px); text-align: center; width: 75%; margin: auto">
+					</div>
+				</div>
+				
+				<div class="swiper-container">
+					<div class="swiper-wrapper">
+						<div class="swiper-slide">
+							<div style="margin: auto;cursor: pointer;" onclick="transfer_url('nhentai')">
+								<input type="image" src="img/nhentai.png" alt="nhentai">
+								<div style="text-align: center;">nhentai</div>
+							</div>
+						</div>
+						<div class="swiper-slide">
+							<div style="margin: auto;cursor: pointer;" onclick="transfer_url('wnacg')">
+								<input type="image" src="img/wnacg.png" alt="wnacg">
+								<div style="text-align: center;">紳士漫畫</div>
+							</div>
+						</div>
+						<div class="swiper-slide">
+							<div style="margin: auto;cursor: pointer;" onclick="transfer_url('pixiv')">
+								<input type="image" src="img/pixiv.png" alt="pixiv">
+								<div style="text-align: center;">pixiv</div>
+							</div>
+						</div>
+					</div>
+					<div class="swiper-button-prev"></div>
+					<div class="swiper-button-next"></div>
 				</div>
 			</div>
-			
-			<div class="swiper-container">
-				<div class="swiper-wrapper">
-					<div class="swiper-slide">
-						<div style="margin: auto;cursor: pointer;" onclick="transfer_url('nhentai')">
-							<input type="image" src="img/nhentai.png" alt="nhentai">
-							<div style="text-align: center;">nhentai</div>
-						</div>
+			<div style="height:50px;"></div>
+			<div class="d_bor" style="padding: 5px;">
+				<h1 style="text-align:center;  font-size:24px;">使用方式</h1>
+				<div style="padding: 5px;margin-bottom: 10px">將神的語言輸入在文字框中，點擊圖式即可轉換。</div>
+				<div style="text-align:center;">
+					<div class="lines">
+						<div class="line"></div>
+						<div style="margin: auto 10px; width: 100%">以下是較為常見的長度</div>
+						<div class="line"></div>
 					</div>
-					<div class="swiper-slide">
-						<div style="margin: auto;cursor: pointer;" onclick="transfer_url('wnacg')">
-							<input type="image" src="img/wnacg.png" alt="wnacg">
-							<div style="text-align: center;">紳士漫畫</div>
-						</div>
-					</div>
-					<div class="swiper-slide">
-						<div style="margin: auto;cursor: pointer;" onclick="transfer_url('pixiv')">
-							<input type="image" src="img/pixiv.png" alt="pixiv">
-							<div style="text-align: center;">pixiv</div>
-						</div>
-					</div>
+					<div style="padding: 5px;">nhentai：<div style="display: inline;color: red">XXXXXX (6)</div></div>
+					<div style="padding: 5px;">紳士漫畫：<div style="display: inline;color: red">XXXXX (5)</div></div>
+					<div style="padding: 5px;">pixiv：<div style="display: inline;color: red">XXXXXXXX (8)</div></div>
 				</div>
-				<div class="swiper-button-prev"></div>
-				<div class="swiper-button-next"></div>
 			</div>
 		</div>
 	</body>
