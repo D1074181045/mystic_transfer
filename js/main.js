@@ -12,10 +12,13 @@ function transfer_url(to_name) {
 			url = "https://nhentai.net/g/".concat(mystic_num);
 			break;
 		case 'wnacg':
-			url = "https://www.wnacg.org/photos-index-aid-".concat(mystic_num, ".html");
+			url = "https://www.wnacg.com/photos-index-aid-".concat(mystic_num, ".html");
 			break;
 		case 'pixiv':
 			url = "https://www.pixiv.net/artworks/".concat(mystic_num);
+			break;
+		case 'jm':
+			url = "https://18comic.vip/album/".concat(mystic_num);
 			break;
 	}
 	
