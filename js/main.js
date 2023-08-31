@@ -9,16 +9,16 @@ function transfer_url(to_name) {
 	let url;
 	switch (to_name) {
 		case 'nhentai':
-			url = "https://nhentai.net/g/".concat(mystic_num);
+			url = `https://nhentai.net/g/${mystic_num}`;
 			break;
 		case 'wnacg':
-			url = "https://www.wnacg.com/photos-index-aid-".concat(mystic_num, ".html");
+			url = `https://www.wnacg.com/photos-index-aid-${mystic_num}.html`;
 			break;
 		case 'pixiv':
-			url = "https://www.pixiv.net/artworks/".concat(mystic_num);
+			url = `https://www.pixiv.net/artworks/${mystic_num}`;
 			break;
 		case 'jm':
-			url = "https://18comic.vip/album/".concat(mystic_num);
+			url = `https://18comic.vip/album/${mystic_num}`;
 			break;
 	}
 	
